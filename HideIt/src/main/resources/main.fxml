@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="style.css"
+            fx:controller="np.edu.kathford.www.controller.MainController">
+    <fx:define>
+        <ToggleGroup fx:id="tgEncodeDecode"/>
+    </fx:define>
+    <top>
+        <MenuBar>
+            <Menu text="_File">
+                <MenuItem text="E_xit"/>
+            </Menu>
+            <Menu text="_Help">
+                <MenuItem text="_Help"/>
+                <MenuItem text="_About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <VBox fx:id="content" style="-fx-padding: 10px; -fx-spacing: 5px">
+            <Label text="Choose an Image or Audio File:"/>
+            <HBox style="-fx-spacing: 5px">
+                <TextField fx:id="inputFilePath" HBox.hgrow="ALWAYS"
+                           editable="false"
+                           focusTraversable="false"/>
+                <Button fx:id="btnSelectInputFile" onAction="#selectInputFile" HBox.hgrow="NEVER" prefWidth="30"
+                        text="…"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label textAlignment="RIGHT" text="Encoding Media:"/>
+                <Text fx:id="fileTypeStatus" text="Not Selected"/>
+            </HBox>
+
+            <HBox spacing="6">
+                <RadioButton fx:id="radioEncode" text="Encode" selected="true" toggleGroup="$tgEncodeDecode"/>
+                <RadioButton fx:id="radioDecode" text="Decode" toggleGroup="$tgEncodeDecode"/>
+            </HBox>
+            <VBox VBox.vgrow="ALWAYS" fx:id="vbEncodeFields" spacing="5">
+                <HBox>
+                    <Label text="Message:"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Text text="Remaining Characters "/>
+                    <Text fx:id="remainingCharacters" text="0"/>
+                </HBox>
+
+                <TextArea fx:id="encodeMessage" disable="true"/>
+                <Label labelFor="$encodeSecret" text="Secret:"/>
+                <PasswordField fx:id="encodeSecret"/>
+                <Label labelFor="$encodeReSecret" text="Retype Secret:"/>
+                <PasswordField fx:id="encodeReSecret"/>
+                <Label text="Output File Path:"/>
+                <HBox style="-fx-spacing: 5px">
+                    <TextField fx:id="outputFilePath" HBox.hgrow="ALWAYS" editable="false"
+                               focusTraversable="false"/>
+                    <Button fx:id="btnSelectOutputPath" HBox.hgrow="NEVER" onAction="#selectOutputFile" prefWidth="30"
+                            text="…"/>
+                </HBox>
+                <Region VBox.vgrow="ALWAYS"/>
+                <HBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnEncode" text="Encode" onAction="#encode"/>
+                </HBox>
+
+            </VBox>
+            <VBox VBox.vgrow="ALWAYS" fx:id="vbDecodeFields" spacing="5" visible="false" managed="false">
+                <Label text="Secret:"/>
+                <PasswordField fx:id="decodeSecret"/>
+                <Label text="Decoded Message:" style="-fx-font-weight: bold"/>
+                <TextArea fx:id="decodedMessage" editable="false" wrapText="true"/>
+                <Region VBox.vgrow="ALWAYS"/>
+                <HBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnDecode" text="Decode" onAction="#decode"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </center>
+    <bottom>
+        <HBox spacing="5"
+              style="-fx-padding: 3px; -fx-border-width: 1px 0px 0px 0px; -fx-border-color: #aaaaaa;">
+            <Text styleClass="txt-info" fx:id="statusText"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <ProgressBar fx:id="progressBar" prefWidth="200" visible="false"/>
+            <Text fx:id="progressStatus"/>
+        </HBox>
+    </bottom>
+</BorderPane>

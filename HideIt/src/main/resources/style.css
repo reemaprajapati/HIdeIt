@@ -1,0 +1,99 @@
+.root {
+    -fx-background-color: #f2f2f2;
+}
+
+#content .label {
+    -fx-font-weight: 700;
+}
+
+.button, .text-field, .text-area, .password-field {
+    -fx-background-radius: 0;
+    -fx-border-width: 1px;
+    -fx-border-color: #bdbdbd;
+
+}
+
+.text-field:readonly {
+    -fx-background-color: #e8e8e8;
+}
+.text-field:readonly:focused {
+    -fx-border-color: #bdbdbd;
+}
+
+.text-area, .text-field, .password-field {
+    -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0;
+}
+
+.text-area .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+.text-area:focused .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+.text-area:focused, .text-field:focused, .password-field:focused {
+    -fx-border-color: #6392d6;
+}
+
+.text-area:readonly, .text-area:readonly .content {
+    -fx-background-color: #e8e8e8;
+}
+
+.button {
+    -fx-background-color: #e3e3e3;
+
+}
+
+.radio-button .radio {
+    -fx-pref-height: 12px;
+    -fx-pref-width: 12px;
+    -fx-background-color: #e3e3e3;
+    -fx-background-insets: 0;
+    -fx-border-width: 1px;
+    -fx-border-color: #bdbdbd;
+    -fx-border-radius: 50%;
+}
+
+.menu-item {
+    -fx-padding: 2px 4px 2px 4px;
+}
+
+.context-menu {
+    -fx-background-color: #EEEEEE;
+    -fx-effect: none;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-style: solid;
+    -fx-border-color: lightgray;
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-min-width: 64px;
+}
+
+.menu {
+    -fx-padding: 2px 4px 2px 8px;
+
+}
+
+.menu-bar .label {
+    -fx-font-weight: normal;
+}
+
+.menu-bar {
+    -fx-background-color: transparent;
+    -fx-border-style: solid;
+    -fx-border-color: lightgray;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+.txt-info {
+    -fx-fill: #222222;
+}
+
+.txt-warn {
+    -fx-fill: #a8a600;
+}
+
+.txt-error {
+    -fx-fill: #d10e01;
+}
